@@ -22,6 +22,4 @@ public with sharing class MethodOveriding {
         Animal d = new Dog();
         d.sound(); // Output: Dog barks
     }
-       
-       
 }

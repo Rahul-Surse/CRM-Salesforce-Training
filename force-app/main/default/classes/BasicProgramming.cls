@@ -69,12 +69,18 @@ public static void replaceCharacter(List<String> arr, String ch) {
 //--------------------------------------------------------------------------------------------------
 public static void countStringLength(String str) 
 {
-    Integer count=0;
-    for(Character c:str.toCharArray())
-    {
-        count++;
+    Integer i = 0; 
+    try { 
+        while (true) 
+          { 
+             str.charAt(i);
+             i++;
+          } 
+        } 
+    catch (System.StringException e)
+     { 
+        System.debug('Length of the string: ' + i); 
     }
-    System.debug('the length of string is'+count);
 }
 
 //---------------------------------------------------------------------------------------------------

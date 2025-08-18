@@ -5,11 +5,11 @@ public with sharing class SetIntersection {
         // result =s1.retainAll(s2); retainAll having a boolean type to retain
         // System.debug('Hiii');
         
-        // for (Integer i : s1) {
-        //     if (s2.contains(i)) {
-        //         result.add(i);
-        //     }
-        // }
+        for (Integer i : s1) {
+            if (s2.contains(i)) {
+                result.add(i);
+            }
+        }
 
         s1.retainAll(s2);
 

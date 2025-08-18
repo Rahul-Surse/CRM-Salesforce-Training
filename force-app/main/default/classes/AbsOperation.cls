@@ -4,7 +4,7 @@ public with sharing class AbsOperation {
         public abstract void display();
     }
 
-  
+    // Concrete class that implements abstract method
     public class MyOperation extends Operation {
         public override void display() {
             System.debug('This is the implementation of display method.');
@@ -15,5 +15,4 @@ public with sharing class AbsOperation {
         Operation op = new MyOperation();
         op.display();
     }
-   
 }
