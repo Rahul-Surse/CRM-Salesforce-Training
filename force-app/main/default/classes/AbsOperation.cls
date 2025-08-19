@@ -10,7 +10,7 @@ public with sharing class AbsOperation {
             System.debug('This is the implementation of display method.');
         }
     }
-
+    //some change
     public static void main() {
         Operation op = new MyOperation();
         op.display();
