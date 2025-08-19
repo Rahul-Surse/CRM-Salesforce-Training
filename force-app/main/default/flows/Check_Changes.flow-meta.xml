@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assining_all_changes</name>
+        <label>Assining  all changes</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>Varchange</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NameChangeFor</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Varchange</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>EmailChangeFor</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Varchange</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>AddChangeFor</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Records_1</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Field_Changes</name>
+        <label>Check Field Changes</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>FieldsChanged</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.MailingCity</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastName</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assining_all_changes</targetReference>
+            </connector>
+            <label>FieldsChanged</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AddChangeFor</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISCHANGED({!$Record.Email}),
+  &quot;Email&quot; &amp; &quot;\t&quot; &amp; {!$Record__Prior.Email} &amp; &quot;\t&quot; &amp; {!$Record.Email} &amp; &quot;\n&quot;,
+  &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>EmailChangeFor</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISCHANGED({!$Record.Email}),
+  &quot;Email&quot; &amp; &quot;\t&quot; &amp; {!$Record__Prior.Email} &amp; &quot;\t&quot; &amp; {!$Record.Email} &amp; &quot;\n&quot;,
+  &quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>NameChangeFor</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  ISCHANGED({!$Record.FirstName}) || ISCHANGED({!$Record.LastName}),
+  &quot;Name&quot; &amp; &quot;\t&quot; &amp;
+  {!$Record__Prior.FirstName} &amp; &quot; &quot; &amp; {!$Record__Prior.LastName} &amp; &quot;\t&quot; &amp;
+  {!$Record.FirstName} &amp; &quot; &quot; &amp; {!$Record.LastName} &amp; &quot;\n&quot;,
+  &quot;&quot;
+)</expression>
+    </formulas>
+    <interviewLabel>Check Changes {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Check Changes</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_Records_1</name>
+        <label>Create Records 1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <object>Contact_Change_Event__e</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Field_Changes</targetReference>
+        </connector>
+        <object>Contact</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>ChangeAddress</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ChangeEmail</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ChangeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>Varchange</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

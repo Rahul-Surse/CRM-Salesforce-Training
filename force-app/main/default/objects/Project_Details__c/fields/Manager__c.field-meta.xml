@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This Field contain the relationship with Employee object</description>
+    <inlineHelpText>relationship with Employee object</inlineHelpText>
+    <label>Manager</label>
+    <lookupFilter>
+        <active>false</active>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>EMPLOYEE__c</referenceTo>
+    <relationshipLabel>Project Detailss</relationshipLabel>
+    <relationshipName>Project_Detailss</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

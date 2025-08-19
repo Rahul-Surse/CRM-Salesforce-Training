@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field having Lookup relation with employee object</description>
+    <inlineHelpText>the lookup relationship with employee</inlineHelpText>
+    <label>Manager</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>EMPLOYEE__c.Employee_ID__c</field>
+            <operation>equals</operation>
+            <value>EMP-000014</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>EMPLOYEE__c</referenceTo>
+    <relationshipName>EMPLOYEES</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

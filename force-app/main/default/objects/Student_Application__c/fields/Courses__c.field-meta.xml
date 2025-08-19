@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Courses__c</fullName>
+    <description>Specific course the student is applying for.</description>
+    <inlineHelpText>Select the course to apply</inlineHelpText>
+    <label>Courses</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Stream__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BA</fullName>
+                <default>false</default>
+                <label>BA</label>
+            </value>
+            <value>
+                <fullName>MA</fullName>
+                <default>false</default>
+                <label>MA</label>
+            </value>
+            <value>
+                <fullName>B. Com</fullName>
+                <default>false</default>
+                <label>B. Com</label>
+            </value>
+            <value>
+                <fullName>M. Com</fullName>
+                <default>false</default>
+                <label>M. Com</label>
+            </value>
+            <value>
+                <fullName>B.Sc.</fullName>
+                <default>false</default>
+                <label>B.Sc.</label>
+            </value>
+            <value>
+                <fullName>M.Sc.</fullName>
+                <default>false</default>
+                <label>M.Sc.</label>
+            </value>
+            <value>
+                <fullName>B.E.</fullName>
+                <default>false</default>
+                <label>B.E.</label>
+            </value>
+            <value>
+                <fullName>B. Tech</fullName>
+                <default>false</default>
+                <label>B. Tech</label>
+            </value>
+            <value>
+                <fullName>BCA</fullName>
+                <default>false</default>
+                <label>BCA</label>
+            </value>
+            <value>
+                <fullName>MCA</fullName>
+                <default>false</default>
+                <label>MCA</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Arts</controllingFieldValue>
+            <valueName>BA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Arts</controllingFieldValue>
+            <valueName>MA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commerce</controllingFieldValue>
+            <valueName>B. Com</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commerce</controllingFieldValue>
+            <valueName>M. Com</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>B.Sc.</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>M.Sc.</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>B.E.</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>B. Tech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>BCA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Science</controllingFieldValue>
+            <valueName>MCA</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

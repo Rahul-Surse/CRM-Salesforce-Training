@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- city of the employee --></help>
+    <label><!-- City --></label>
+    <name>City__c</name>
+    <picklistValues>
+        <masterLabel>Bhopal</masterLabel>
+        <translation><!-- Bhopal --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gandhi Nagar</masterLabel>
+        <translation><!-- Gandhi Nagar --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Guntur</masterLabel>
+        <translation><!-- Guntur --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hyderabad</masterLabel>
+        <translation><!-- Hyderabad --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mumbai</masterLabel>
+        <translation><!-- Mumbai --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pune</masterLabel>
+        <translation><!-- Pune --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Surat</masterLabel>
+        <translation><!-- Surat --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

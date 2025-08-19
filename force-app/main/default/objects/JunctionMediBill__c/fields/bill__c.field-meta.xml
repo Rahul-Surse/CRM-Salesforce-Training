@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>bill__c</fullName>
+    <description>This Field consist the id which  relate to bill object</description>
+    <inlineHelpText>the id of bill object</inlineHelpText>
+    <label>bill</label>
+    <referenceTo>bill__c</referenceTo>
+    <relationshipLabel>JunctionMediBills</relationshipLabel>
+    <relationshipName>Junctions</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

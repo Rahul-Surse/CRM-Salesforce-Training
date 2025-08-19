@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- ctc of the employee --></help>
+    <label><!-- Annual CTC --></label>
+    <name>Annual_CTC__c</name>
+</CustomFieldTranslation>

@@ -11,7 +11,7 @@
         <chartType>HorizontalBarStacked</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>FlowInterviewLog$FlowLabel</groupingColumn>
+        <groupingColumn>FlowInterviewLog$FlowDeveloperName</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <secondaryGroupingColumn>FlowInterviewLog$InterviewStatus</secondaryGroupingColumn>
@@ -30,7 +30,7 @@
         <field>FlowInterviewLog.FlowInterviewLogs$LogEntryType</field>
     </columns>
     <columns>
-        <field>FlowInterviewLog.FlowInterviewLogs$ElementLabel</field>
+        <field>FlowInterviewLog.FlowInterviewLogs$ElementApiName</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -47,7 +47,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>FlowInterviewLog$FlowLabel</field>
+        <field>FlowInterviewLog$FlowDeveloperName</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>

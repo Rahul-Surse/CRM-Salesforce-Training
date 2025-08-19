@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CheckAge</fullName>
+    <active>true</active>
+    <description>This can validate that the age of the employee is not smaller than 18</description>
+    <errorConditionFormula>TODAY() -  Date_of_Birth__c  &lt; 6570</errorConditionFormula>
+    <errorDisplayField>Date_of_Birth__c</errorDisplayField>
+    <errorMessage>Please provide a valid Date of birth. Employee cannot be less than 18 years of Age</errorMessage>
+</ValidationRule>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Salary Details</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Salary Details</value>
+    </caseValues>
+    <layouts>
+        <layout>SALARY DETAILS Layout</layout>
+        <sections>
+            <label><!-- Bank Details --></label>
+            <section>Bank Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+        <sections>
+            <label><!-- Salary Credit Details --></label>
+            <section>Salary Credit Details</section>
+        </sections>
+        <sections>
+            <label><!-- Salary Deduction Details --></label>
+            <section>Salary Deduction Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Bank account number can’t be changed once it’s entered --></errorMessage>
+        <name>AccNumSet</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please fill all the field of bank details --></errorMessage>
+        <name>BankfiledNotBlank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Salary cannot be processed for inactive employees --></errorMessage>
+        <name>RestrictRecordCreation</name>
+    </validationRules>
+</CustomObjectTranslation>

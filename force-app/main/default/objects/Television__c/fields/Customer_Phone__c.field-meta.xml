@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Phone__c</fullName>
+    <description>This field contain Customer Phone number</description>
+    <inlineHelpText>Customer Phone number</inlineHelpText>
+    <label>Customer Phone</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Phone</type>
+</CustomField>

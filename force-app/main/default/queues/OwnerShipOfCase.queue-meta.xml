@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This  queue Assign the ownership of the Case object to this queue</description>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>OwnerShipOfCase</name>
+    <queueMembers>
+        <users>
+            <user>goxixol637@misehub.com</user>
+            <user>rahulsurse2000@empathetic-shark-k3xjvb.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

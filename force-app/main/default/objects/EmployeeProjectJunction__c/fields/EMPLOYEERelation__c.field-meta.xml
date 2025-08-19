@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMPLOYEERelation__c</fullName>
+    <description>This field contain relation between EmployeeProjectJunction object and employee object</description>
+    <inlineHelpText>relation between EmployeeProjectJunction object and employee object</inlineHelpText>
+    <label>EMPLOYEERelation</label>
+    <referenceTo>EMPLOYEE__c</referenceTo>
+    <relationshipName>EmployeeProjectJunctions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

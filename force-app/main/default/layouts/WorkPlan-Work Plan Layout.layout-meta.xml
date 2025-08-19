@@ -13,7 +13,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>WorkOrderId</field>
+                <field>ParentRecordId</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -22,8 +22,8 @@
                 <field>ExecutionOrder</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>WorkOrderLineItemId</field>
+                <behavior>Readonly</behavior>
+                <field>ParentRecordType</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

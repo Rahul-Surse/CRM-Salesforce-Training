@@ -5,8 +5,7 @@
             </p>
             <p>
             Click the link for access: <a href={!Community_URL}>{!Community_Name}</a>
-            Username: {!Receiving_User.Username}
             </p>
             Regards,<br>
-            {!User.Name}
+            {!Sending_User.Name}
             </html>

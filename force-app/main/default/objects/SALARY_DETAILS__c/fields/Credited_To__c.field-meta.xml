@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credited_To__c</fullName>
+    <description>this field contain the information of the employee to which salary get created</description>
+    <inlineHelpText>Employee get salary</inlineHelpText>
+    <label>Credited To</label>
+    <referenceTo>EMPLOYEE__c</referenceTo>
+    <relationshipName>SALARY_DETAILSs</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Details_relation__c</fullName>
+    <description>This field having relation with project details object</description>
+    <inlineHelpText>relation with project details object</inlineHelpText>
+    <label>Project Details relation</label>
+    <referenceTo>Project_Details__c</referenceTo>
+    <relationshipName>EmployeeProjectJunctions</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

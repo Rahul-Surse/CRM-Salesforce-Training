@@ -7,5 +7,5 @@
         <operation>equals</operation>
         <value>ASG</value>
     </filters>
-    <label>AllOpenWorkItems</label>
+    <label>All Open Work Items</label>
 </ListView>

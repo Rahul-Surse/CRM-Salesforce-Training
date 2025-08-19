@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Employee__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>The field having the information about employee is current or ex employee</description>
+    <inlineHelpText>Current Employee status</inlineHelpText>
+    <label>Current Employee</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

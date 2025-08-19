@@ -8,4 +8,28 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <tabs>standard-Chatter</tabs>
     <tabs>standard-Sites</tabs>
+    <tabs>Merchandise__c</tabs>
+    <tabs>Invoice_Statement__c</tabs>
+    <tabs>Line_Item__c</tabs>
+    <tabs>book__c</tabs>
+    <tabs>writer__c</tabs>
+    <tabs>bill__c</tabs>
+    <tabs>media__c</tabs>
+    <tabs>JunctionMediBill__c</tabs>
+    <tabs>billss__c</tabs>
+    <tabs>DEPARTMENT__c</tabs>
+    <tabs>EMPLOYEE__c</tabs>
+    <tabs>SALARY_DETAILS__c</tabs>
+    <tabs>Client__c</tabs>
+    <tabs>students__c</tabs>
+    <tabs>record__c</tabs>
+    <tabs>Project_Details__c</tabs>
+    <tabs>Role_of_employee__c</tabs>
+    <tabs>Obj1__c</tabs>
+    <tabs>Obj2__c</tabs>
+    <tabs>EmployeeProjectJunction__c</tabs>
+    <tabs>Student_Application__c</tabs>
+    <tabs>A__c</tabs>
+    <tabs>B__c</tabs>
+    <tabs>Television__c</tabs>
 </CustomApplication>

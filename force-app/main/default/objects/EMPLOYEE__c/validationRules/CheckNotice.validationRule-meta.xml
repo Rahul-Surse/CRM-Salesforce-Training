@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CheckNotice</fullName>
+    <active>true</active>
+    <description>To check the notice period is true then resignation date can not be null</description>
+    <errorConditionFormula>AND(
+     Is_on_Notice_Period_c__c ,
+    ISBLANK(Resignation_Date__c)
+)</errorConditionFormula>
+    <errorMessage>Resignation date is required when the notice period is checked</errorMessage>
+</ValidationRule>

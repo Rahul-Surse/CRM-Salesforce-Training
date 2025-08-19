@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>media__c</fullName>
+    <description>This field having the id of related Object</description>
+    <inlineHelpText>the media field</inlineHelpText>
+    <label>media</label>
+    <referenceTo>media__c</referenceTo>
+    <relationshipLabel>JunctionMediBills</relationshipLabel>
+    <relationshipName>Junctions</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

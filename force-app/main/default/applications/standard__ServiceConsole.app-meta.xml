@@ -181,7 +181,97 @@
     <tabs>standard-Case</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
+    <tabs>Merchandise__c</tabs>
+    <tabs>Invoice_Statement__c</tabs>
+    <tabs>Line_Item__c</tabs>
+    <tabs>book__c</tabs>
+    <tabs>writer__c</tabs>
+    <tabs>bill__c</tabs>
+    <tabs>media__c</tabs>
+    <tabs>JunctionMediBill__c</tabs>
+    <tabs>billss__c</tabs>
+    <tabs>DEPARTMENT__c</tabs>
+    <tabs>EMPLOYEE__c</tabs>
+    <tabs>SALARY_DETAILS__c</tabs>
+    <tabs>Client__c</tabs>
+    <tabs>students__c</tabs>
+    <tabs>record__c</tabs>
+    <tabs>Project_Details__c</tabs>
+    <tabs>Role_of_employee__c</tabs>
+    <tabs>Obj1__c</tabs>
+    <tabs>Obj2__c</tabs>
+    <tabs>EmployeeProjectJunction__c</tabs>
+    <tabs>Student_Application__c</tabs>
+    <tabs>A__c</tabs>
+    <tabs>B__c</tabs>
+    <tabs>Television__c</tabs>
     <workspaceConfig>
+        <mappings>
+            <tab>A__c</tab>
+        </mappings>
+        <mappings>
+            <tab>B__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Client__c</tab>
+        </mappings>
+        <mappings>
+            <tab>DEPARTMENT__c</tab>
+        </mappings>
+        <mappings>
+            <tab>EMPLOYEE__c</tab>
+        </mappings>
+        <mappings>
+            <tab>EmployeeProjectJunction__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Invoice_Statement__c</tab>
+        </mappings>
+        <mappings>
+            <tab>JunctionMediBill__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Line_Item__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Merchandise__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Obj1__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Obj2__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Project_Details__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Role_of_employee__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SALARY_DETAILS__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Student_Application__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Television__c</tab>
+        </mappings>
+        <mappings>
+            <tab>bill__c</tab>
+        </mappings>
+        <mappings>
+            <tab>billss__c</tab>
+        </mappings>
+        <mappings>
+            <tab>book__c</tab>
+        </mappings>
+        <mappings>
+            <tab>media__c</tab>
+        </mappings>
+        <mappings>
+            <tab>record__c</tab>
+        </mappings>
         <mappings>
             <tab>standard-Account</tab>
         </mappings>
@@ -199,6 +289,12 @@
         <mappings>
             <fieldName>AccountId</fieldName>
             <tab>standard-Opportunity</tab>
+        </mappings>
+        <mappings>
+            <tab>students__c</tab>
+        </mappings>
+        <mappings>
+            <tab>writer__c</tab>
         </mappings>
     </workspaceConfig>
 </CustomApplication>

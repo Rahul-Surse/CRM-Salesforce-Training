@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Customer pin-code --></help>
+    <label><!-- Customer pin-code --></label>
+    <name>Customer_pin_code__c</name>
+</CustomFieldTranslation>

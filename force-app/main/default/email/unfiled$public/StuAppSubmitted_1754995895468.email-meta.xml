@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>This Template is use for sending the email after successfull creation of record</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>StuAppSubmitted</name>
+    <style>none</style>
+    <subject>Your Application Was Created</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

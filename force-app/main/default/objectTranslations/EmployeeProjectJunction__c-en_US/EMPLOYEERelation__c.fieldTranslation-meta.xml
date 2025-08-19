@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- relation between EmployeeProjectJunction object and employee object --></help>
+    <label><!-- EMPLOYEERelation --></label>
+    <name>EMPLOYEERelation__c</name>
+    <relationshipLabel><!-- EmpProRelations --></relationshipLabel>
+</CustomFieldTranslation>

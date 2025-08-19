@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Special Allowance of the employee --></help>
+    <label><!-- Special Allowance --></label>
+    <name>Special_Allowance__c</name>
+</CustomFieldTranslation>

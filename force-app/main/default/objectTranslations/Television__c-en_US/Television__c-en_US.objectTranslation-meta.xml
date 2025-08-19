@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Television</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Televisions</value>
+    </caseValues>
+    <layouts>
+        <layout>Television Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Record type of Apple --></description>
+        <label><!-- Apple --></label>
+        <name>Apple</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type Croma --></description>
+        <label><!-- Croma --></label>
+        <name>Croma</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type of LG model --></description>
+        <label><!-- LG --></label>
+        <name>LG</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type of Samsung model --></description>
+        <label><!-- Samsung --></label>
+        <name>Samsung</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Record type of Xiaomi --></description>
+        <label><!-- Xiaomi --></label>
+        <name>Xiaomi</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

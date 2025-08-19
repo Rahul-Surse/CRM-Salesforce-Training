@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DEPARTMENT__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The Field having relation with department</description>
+    <inlineHelpText>joins field</inlineHelpText>
+    <label>DEPARTMENT</label>
+    <referenceTo>DEPARTMENT__c</referenceTo>
+    <relationshipName>EMPLOYEES</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

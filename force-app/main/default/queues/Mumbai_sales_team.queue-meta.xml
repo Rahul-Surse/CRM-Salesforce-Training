@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Queue is for sales team of mumbaiemploem</description>
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>goxixol637@misehub.com</email>
+    <name>Mumbai sales team</name>
+    <queueMembers>
+        <users>
+            <user>goxixol637@misehub.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+</Queue>

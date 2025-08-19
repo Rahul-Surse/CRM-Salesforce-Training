@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Account_Number__c</fullName>
+    <description>The field contain the bank account number of the employee</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Bank Account Number</inlineHelpText>
+    <label>Bank Account Number</label>
+    <length>25</length>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Age</fullName>
+    <active>true</active>
+    <description>This Restrict the creation of an employee where the DOB is 18 years older</description>
+    <errorConditionFormula>(today() -  Date_of_Birth__c )&lt;18</errorConditionFormula>
+    <errorMessage>Please provide a valid Date of birth</errorMessage>
+</ValidationRule>
