@@ -14,10 +14,12 @@ public class ContactTriggerHandlerTest {
 
     @testSetup
     static void setupData() {
-        insert new List<Account>{
-            new Account(Name = 'ABC Corp', Website = 'https://www.abc.com'),
-            new Account(Name = 'XYZ Ltd', Website = 'xyz.com')
-        };
+        List<Account> lstAccounts = new List<Account>();
+        Account acc1=new Account(Name = 'ABC Corp', Website = 'https://www.abc.com');
+        Account acc2=new Account(Name = 'XYZ Ltd', Website = 'xyz.com');
+        lstAccounts.add(acc1);
+        lstAccounts.add(acc2);
+        insert lstAccounts;
     }
     
     /***************************************************************************************************
@@ -28,12 +30,12 @@ public class ContactTriggerHandlerTest {
 
     @isTest
     static void testMatchingDomainABC() {
-        System.Test.startTest();
         Contact c = new Contact(LastName = 'Smith', Email = 'john@abc.com');
+        Test.startTest();
         insert c;
-        System.Test.stopTest();
+        Test.stopTest();
         
-        List<Contact> lstContact = [
+        List<Contact> lstContact =  [
                                         SELECT 
                                             AccountId 
                                         FROM 
@@ -44,7 +46,7 @@ public class ContactTriggerHandlerTest {
                                             50000
                                     ];
         
-        System.assertNotEquals(null, lstContact[0].AccountId, 'fails to Assign account to contact');
+        Assert.areNotEqual(null, lstContact[0].AccountId, 'failed to Assign account to contact');
     }
 
     /***************************************************************************************************
@@ -55,14 +57,14 @@ public class ContactTriggerHandlerTest {
 
     @isTest
     static void testMatchingDomainXYZ() {
-        System.Test.startTest();
         Contact c = new Contact(LastName = 'Brown', Email = 'lisa@xyz.com');
+        Test.startTest();
         insert c;
-        System.Test.stopTest();
+        Test.stopTest();
         
         List<Contact> lstContact = [
                                         SELECT 
-                                            Id, AccountId 
+                                            AccountId 
                                         FROM 
                                             Contact 
                                         WHERE 
@@ -70,8 +72,7 @@ public class ContactTriggerHandlerTest {
                                         LIMIT
                                             50000
                                     ];
-        
-        System.assertNotEquals(null, lstContact[0].AccountId, 'fails to Assign account to contact');
+        Assert.areNotEqual(null, lstContact[0].AccountId, 'fails to Assign account to contact');
     }
 
     /***************************************************************************************************
@@ -82,26 +83,25 @@ public class ContactTriggerHandlerTest {
 
     @isTest
     static void testNoEmail() {
-        System.Test.startTest();
         Contact c = new Contact(LastName = 'Doe');
+        Test.startTest();
         insert c;
-        System.Test.stopTest();
+        Test.stopTest();
         
         List<Contact> lstContact = [
                                         SELECT 
-                                            Id, AccountId 
+                                             AccountId 
                                         FROM 
                                             Contact 
                                         WHERE 
                                             Id = :c.Id
                                         LIMIT 
-                                            50000
+                                            1
                                     ];
-        
-        System.assertEquals(null, lstContact[0].AccountId, 'some problem is there');
+        Assert.areEqual(null, lstContact[0].AccountId, 'Account assign to contact have no eamil');
     }
 
-     /***************************************************************************************************
+    /***************************************************************************************************
     * @Author:        CRM Developer
     * @Description:   This method is created for implementing test case on non-matching domain
     * @Param1:        NA
@@ -109,14 +109,14 @@ public class ContactTriggerHandlerTest {
     
     @isTest
     static void testNonMatchingDomain() {
-        System.Test.startTest();
         Contact c = new Contact(LastName = 'Williams', Email = 'mary@nomatch.com');
+        Test.startTest();
         insert c;
-        System.Test.stopTest();
+        Test.stopTest();
         
         List<Contact> lstContact = [
                                         SELECT 
-                                            Id, AccountId 
+                                            AccountId 
                                         FROM
                                             Contact 
                                         WHERE 
@@ -124,6 +124,6 @@ public class ContactTriggerHandlerTest {
                                         LIMIT 
                                             50000
         ];
-        System.assertEquals(null, lstContact[0].AccountId, 'some problem is there');
+        Assert.areEqual(null, lstContact[0].AccountId, 'Domain is not match still account get assign to contact');
     }
 }

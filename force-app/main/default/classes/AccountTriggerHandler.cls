@@ -7,6 +7,8 @@
 public with sharing class AccountTriggerHandler {
     
     private static Boolean cloneFlag=false;
+    public static Boolean isFirstRun = true;
+    public static Boolean flag = true;
     
     /***************************************************************************************************
     * @Author:        CRM Developer
@@ -31,4 +33,45 @@ public with sharing class AccountTriggerHandler {
             }
         }
     }
-}
+
+    public static void updateAccountDescription(List<Account> lstAccounts)
+    {
+
+         if (!isFirstRun) {
+            return; 
+        }
+        isFirstRun = false;
+         System.debug('---------updateAccountDescription handler---');
+         Set<Id> accIds = new Set<Id>();
+        for(Account acc : lstAccounts){
+            accIds.add(acc.Id);
+        }
+        
+        if(!accIds.isEmpty()){
+            if(System.IsBatch() == false && System.isFuture() == false){ 
+                AccountFutureMethod.updateAccountDescription(accIds);
+            }
+            else{
+                System.debug('Another Future is running');
+            }
+        }
+    }
+    public static void accountNamePrefixCti(List<Account> lstAccounts)
+    {
+        Set<Id> setAccIds = new Set<Id>();
+        for (Account acc : lstAccounts) {
+            setAccIds.add(acc.Id);
+        }
+
+        if (!setAccIds.isEmpty() && (flag == True)) {
+            try {
+                System.enqueueJob(new AccountQueueableHandler(setAccIds));
+                flag = false;
+            } catch (Exception e) {
+                System.debug(e);
+            }
+           
+        }
+        flag = true;
+    }
+} 

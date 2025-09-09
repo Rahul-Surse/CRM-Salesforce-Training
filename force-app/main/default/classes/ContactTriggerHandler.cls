@@ -54,7 +54,7 @@ public with sharing class ContactTriggerHandler {
 ***************************************************************************************************/
     public static void associateContactsToAccount(List<Contact> lstContacts)
     {
-        Map<String, Id> domainToAccount = new Map<String, Id>();
+        Map<String, Id> mapWebsiteVsAccountId = new Map<String, Id>();
 
         for (Account acc : [
                                 SELECT 
@@ -70,19 +70,17 @@ public with sharing class ContactTriggerHandler {
                 String website = acc.Website.toLowerCase();
                 website = website.replaceFirst('^(https?://|ftp://)?(www\\.)?', '');
                 website = website.replaceFirst('/.*$', ''); 
-                domainToAccount.put(website, acc.Id);
+                mapWebsiteVsAccountId.put(website, acc.Id);
             }
         }
 
         for (Contact con : lstContacts) {
             if (String.isNotBlank(con.Email) && con.Email.contains('@')) {
                 String domain = con.Email.substringAfter('@').toLowerCase();
-                if (domainToAccount.containsKey(domain)) {
-                    con.AccountId = domainToAccount.get(domain);
+                if (mapWebsiteVsAccountId.containsKey(domain)) {
+                    con.AccountId = mapWebsiteVsAccountId.get(domain);
                 }
             }
         }
     }
 }
-
-
