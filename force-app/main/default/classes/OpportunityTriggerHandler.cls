@@ -101,15 +101,20 @@ public with sharing class OpportunityTriggerHandler {
                                                ];
             List<OpportunityLineItem> lstOliToUpdate = new List<OpportunityLineItem>();
             for (OpportunityLineItem oli : lstOpp) {
-                Decimal discount = oppDiscountMap.get(oli.OpportunityId);
-                if (discount != null) {
+                Decimal discount1 = oppDiscountMap.get(oli.OpportunityId);
+                if (discount1 != null) {
                     // Decimal updatedUnitPrice = oli.ListPrice	* (1 - discount / 100);
-                    OpportunityLineItem oppLineItem = new OpportunityLineItem();
-                    oppLineItem.Id = oli.Id;
+                    // OpportunityLineItem oppLineItem = 
+                    // oppLineItem.Id = oli.Id;
                     // oppLineItem.UnitPrice = updatedUnitPrice;
-                    oppLineItem.discount=discount;
-                    lstOliToUpdate.add(oppLineItem);
-                }
+                    // oppLineItem.discount=discount;
+                    lstOliToUpdate.add(
+                                            new OpportunityLineItem(
+                                                Id = oli.Id,
+                                                discount=discount1
+                                            )
+                                        );
+                    }
             }
             if (!lstOliToUpdate.isEmpty()) {
                 update lstOliToUpdate;

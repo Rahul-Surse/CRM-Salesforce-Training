@@ -6,7 +6,7 @@
 ***************************************************************************************************/
 public with sharing class AccountTriggerHandler {
     
-    private static Boolean cloneFlag=false;
+    private static Boolean cloneFlag = false;
     public static Boolean isFirstRun = true;
     public static Boolean flag = true;
     
@@ -34,44 +34,44 @@ public with sharing class AccountTriggerHandler {
         }
     }
 
-    public static void updateAccountDescription(List<Account> lstAccounts)
-    {
 
-         if (!isFirstRun) {
-            return; 
-        }
-        isFirstRun = false;
-         System.debug('---------updateAccountDescription handler---');
-         Set<Id> accIds = new Set<Id>();
-        for(Account acc : lstAccounts){
-            accIds.add(acc.Id);
+     /***************************************************************************************************
+    * @Author:        CRM Developer
+    * @Description:   This method is responsible for updaing account description 
+    * @Param1:        lstNewAccounts:- The list of Account records from Trigger.new.
+    ***************************************************************************************************/
+    public static void updateAccountDescription(List<Account> lstAccounts){
+        if (isFirstRun) {
+           isFirstRun = false;
+            //  System.debug('---------updateAccountDescription handler---');
+            Set<Id> accIds = new Set<Id>();
+            for(Account acc : lstAccounts){
+                accIds.add(acc.Id);
+            }
+            if(!accIds.isEmpty()){
+                if(System.IsBatch() == false && System.isFuture() == false){ 
+                    AccountFutureMethod.updateAccountDescription(accIds);
+                }
+                else{
+                    System.debug('Another Future is running');
+                }
+            }
         }
         
-        if(!accIds.isEmpty()){
-            if(System.IsBatch() == false && System.isFuture() == false){ 
-                AccountFutureMethod.updateAccountDescription(accIds);
-            }
-            else{
-                System.debug('Another Future is running');
-            }
-        }
     }
-    public static void accountNamePrefixCti(List<Account> lstAccounts)
-    {
+    public static void accountNamePrefixCti(List<Account> lstAccounts){
+        System.debug('-------------Handler Get Called-------------');
+        System.debug(lstAccounts);
         Set<Id> setAccIds = new Set<Id>();
+        List<Account> lstUpdateAccounts = new List<Account>();
         for (Account acc : lstAccounts) {
-            setAccIds.add(acc.Id);
+            if ( !acc.Name.startsWith('CTI - ')){
+                lstUpdateAccounts.add(acc);
+            }    
         }
-
-        if (!setAccIds.isEmpty() && (flag == True)) {
-            try {
-                System.enqueueJob(new AccountQueueableHandler(setAccIds));
-                flag = false;
-            } catch (Exception e) {
-                System.debug(e);
-            }
-           
+        if (!lstUpdateAccounts.isEmpty()) {
+            System.debug(lstUpdateAccounts);
+            System.enqueueJob(new AccountQueueableHandler(lstUpdateAccounts));
         }
-        flag = true;
     }
 } 
