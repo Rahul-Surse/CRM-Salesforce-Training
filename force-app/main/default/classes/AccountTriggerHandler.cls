@@ -35,15 +35,14 @@ public with sharing class AccountTriggerHandler {
     }
 
 
-     /***************************************************************************************************
+    /***************************************************************************************************
     * @Author:        CRM Developer
     * @Description:   This method is responsible for updaing account description 
     * @Param1:        lstNewAccounts:- The list of Account records from Trigger.new.
     ***************************************************************************************************/
     public static void updateAccountDescription(List<Account> lstAccounts){
         if (isFirstRun) {
-           isFirstRun = false;
-            //  System.debug('---------updateAccountDescription handler---');
+            isFirstRun = false;
             Set<Id> accIds = new Set<Id>();
             for(Account acc : lstAccounts){
                 accIds.add(acc.Id);
@@ -59,18 +58,20 @@ public with sharing class AccountTriggerHandler {
         }
         
     }
+    /***************************************************************************************************
+    * @Author:        CRM Developer
+    * @Description:   This method is responsible for updaing account Account Name with prefix cti 
+    * @Param1:        lstNewAccounts:- The list of Account records from Trigger.new.
+    ***************************************************************************************************/
     public static void accountNamePrefixCti(List<Account> lstAccounts){
-        System.debug('-------------Handler Get Called-------------');
-        System.debug(lstAccounts);
         Set<Id> setAccIds = new Set<Id>();
         List<Account> lstUpdateAccounts = new List<Account>();
         for (Account acc : lstAccounts) {
             if ( !acc.Name.startsWith('CTI - ')){
-                lstUpdateAccounts.add(acc);
+                lstUpdateAccounts.add(new Account(Id=acc.Id,Name = 'CTI - '+acc.Name));
             }    
         }
         if (!lstUpdateAccounts.isEmpty()) {
-            System.debug(lstUpdateAccounts);
             System.enqueueJob(new AccountQueueableHandler(lstUpdateAccounts));
         }
     }

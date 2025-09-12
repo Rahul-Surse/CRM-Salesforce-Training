@@ -1,5 +1,5 @@
 public with sharing class DupliacteAccountOppWrapper {
-        @AuraEnabled  public String ownerId {get; set;}
+        @AuraEnabled public String ownerId {get; set;}
         @AuraEnabled public Integer dupCon {get; set;}
         @AuraEnabled public Integer dupOpp {get; set;}
 
