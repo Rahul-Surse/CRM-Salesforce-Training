@@ -78,7 +78,7 @@ public static void countStringLength(String str)
           } 
         } 
     catch (System.StringException e)
-     { 
+    { 
         System.debug('Length of the string: ' + i); 
     }
 }

@@ -8,13 +8,14 @@ trigger AccountTrigger on Account (after insert,after update,before insert,befor
     // if(Trigger.isAfter && Trigger.isInsert){
     //     AccountTriggerHandler.afterInsertCreateClone(Trigger.new);
     // }
-    if(Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate)){
-        AccountTriggerHandler.updateAccountDescription(Trigger.new);
-    }
-    if(Trigger.isAfter &&(Trigger.isInsert || Trigger.isUpdate))
-    {
-        AccountTriggerHandler.accountNamePrefixCti(Trigger.new);
-    }
+    // if(Trigger.isAfter && (Trigger.isInsert || Trigger.isUpdate)){
+    //     AccountTriggerHandler.updateAccountDescription(Trigger.new);
+    // }
+    // if(Trigger.isAfter &&(Trigger.isInsert || Trigger.isUpdate))
+    // {
+    //     AccountTriggerHandler.accountNamePrefixCti(Trigger.new);
+    // }
+    
        
 
 }

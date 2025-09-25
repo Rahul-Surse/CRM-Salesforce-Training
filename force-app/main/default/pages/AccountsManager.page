@@ -1,0 +1,20 @@
+<apex:page controller="AccountManagerController">
+    <apex:form>
+        <apex:pageBlock title="All Accounts">
+            <apex:inputText value="{!searchKey}" />
+            <apex:commandButton value="Search" action="{!searchAccounts}" rerender="accountTable,messages"/><br/>
+            <apex:outputText value="{!message}" Id="messages"/>
+            <apex:commandLink value="Clear Search" action="{!clearSearch}" rerender="accountTable,messages"/><br/>
+            <apex:pageBlockTable value="{!lstAccounts}" var="acc" id="accountTable">
+            <apex:column headerValue="Account Name">
+               <apex:outputLink value="/{!acc.Id}">{!acc.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!acc.Email__c}" headerValue="Email Address"/>
+            <apex:column value="{!acc.Phone}" headerValue="Phone Number"/>
+            <apex:column headerValue="Website">
+                <apex:outputLink value="{!acc.Website}" target="_blank">{!acc.Website}</apex:outputLink>
+            </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

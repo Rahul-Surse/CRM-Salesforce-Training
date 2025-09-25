@@ -122,4 +122,36 @@ public with sharing class OpportunityTriggerHandler {
             isProcessing = false;
          } 
     }
+
+    public static void updateTotalPriceOfAsssociatedApportunities(List <Opportunity> lstOpportunities)
+    {
+        Set<Id> setOppId = new set<Id>();
+		for(Opportunity opp : lstOpportunities)
+		{
+			setOppId.add(opp.AccountId);
+		}
+		List<AggregateResult> lstAcc = [
+                                            SELECT
+                                                sum(amount) totalOpp,AccountId  
+                                            FROM 
+                                                Opportunity 
+                                            GROUP BY
+                                                AccountId 
+                                            HAVING 
+                                                AccountId IN : setOppId
+                                        ];
+		List<Account> lstUpdateAcc = new List<Account>();
+        if(lstAcc.isEmpty())
+        {
+            // lstUpdateAcc.add(new Account(id = (Id)agg.get('AccountId'),Total_Amount__c = 0));
+        }
+        else {
+                for(AggregateResult Agg :lstAcc ){
+                    Decimal totalOppAmount = (Decimal)agg.get('totalOpp');
+                    lstUpdateAcc.add(new Account(id = (Id)agg.get('AccountId'),Total_Amount__c = totalOppAmount));
+		         }
+        }
+		
+		update lstUpdateAcc;
+    }
 }

@@ -10,12 +10,9 @@ public with sharing class SoslOperation {
                         Contact(Id, FirstName, LastName), 
                         Lead(Id, FirstName, LastName), 
                         User(Id, FirstName, LastName)
-
                 LIMIT 
                         2000
                 ];
-
-       
         for (List<SObject> res : lstAccConLeadUser) {
                 for (SObject obj : res) {
                         if (obj instanceof Account) {
@@ -33,6 +30,5 @@ public with sharing class SoslOperation {
                         }
                 }
         }
- 
 }
 }

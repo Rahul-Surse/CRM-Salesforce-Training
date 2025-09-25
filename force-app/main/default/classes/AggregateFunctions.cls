@@ -44,7 +44,7 @@ public with sharing class AggregateFunctions {
                                                             COUNT(Id) > 10
                                                         LIMIT
                                                             50000
-        ];
+                                                    ];
 
         for(AggregateResult arr:aggregateResultLeadRecord)
         {
@@ -67,7 +67,7 @@ public with sharing class AggregateFunctions {
                                                             status, LeadSource
                                                         LIMIT
                                                             50000
-        ];
+                                                    ];
 
         
         Map<String, Map<String, Integer>> MapLeadSourceVsLeadsCount = new Map<String, Map<String, Integer>>();

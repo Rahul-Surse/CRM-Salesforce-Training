@@ -1,4 +1,4 @@
-public with sharing class SoqlQueries {
+public with sharing class SoqlQueries { 
 
     public Static void getAllActiveUsers() 
     {
@@ -10,6 +10,8 @@ public with sharing class SoqlQueries {
                                             User 
                                         WHERE 
                                             IsActive = TRUE
+                                        WITH 
+                                            SECURITY_ENFORCED
                                         LIMIT
                                             50000
                                     ];
@@ -28,13 +30,15 @@ public with sharing class SoqlQueries {
     {
         List<Account> lstAccounts1=[
                                         SELECT
-                                             Id, Name, Enrollment_Year__c 
+                                            Id, Name, Enrollment_Year__c 
                                         FROM 
                                             Account
                                         WHERE 
                                             Enrollment_Year__c  INCLUDES ('2013')
                                         AND 
                                             Enrollment_Year__c INCLUDES ('2014')
+                                        WITH 
+                                            SECURITY_ENFORCED
                                         LIMIT
                                             50000
                                     ];  
@@ -51,6 +55,8 @@ public with sharing class SoqlQueries {
                                         Account
                                     WHERE 
                                         Enrollment_Year__c INCLUDES ('2010')
+                                    WITH 
+                                        SECURITY_ENFORCED
                                     LIMIT
                                             50000
                                     ];  
@@ -77,7 +83,8 @@ public with sharing class SoqlQueries {
                                         ORDER BY 
                                             BillingState 
                                         DESC NULLS LAST
-                                        LIMIT 10000
+                                        LIMIT 
+                                            10000
 
                                      ];
 
@@ -98,7 +105,6 @@ public with sharing class SoqlQueries {
                                                     Id, Name, Amount, CreatedDate
                                                 FROM 
                                                     Opportunity
-        
                                                 ORDER BY 
                                                     CreatedDate
                                                 LIMIT 

@@ -1,8 +1,8 @@
 
 /***************************************************************************************************
 * @Author:        CRM Developer
-* @className:     DuplicateContactAndOpportunity
-* @Description:   This class is Responsible for the counting duplicate contact and opportunity of associated to account.
+* @TesClassName:  DuplicateContactAndOpportunity
+* @Description:   This class is Responsible for the counting duplicate contact and opportunity record's associated to a account.
 ***************************************************************************************************/
 public class DuplicateContactAndOpportunity implements Database.Batchable<SObject>, Database.Stateful {
 
@@ -13,31 +13,39 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
     * @Param1:        bc:- it is a reference of Database.BatchableContext.
     ***************************************************************************************************/
     public Database.QueryLocator start(Database.BatchableContext bc) {
-    return Database.getQueryLocator([
-                                        SELECT 
-                                            Id, Name,OwnerId,Owner.Name,
-                                                (SELECT 
-                                                    Id, Name, Email
-                                                FROM 
-                                                    Contacts
-                                                LIMIT  
-                                                    50000
+        System.debug('Start method');
+        return Database.getQueryLocator([
+                                            SELECT 
+                                                Id, Name, OwnerId, Owner.Name,
+                                                (
+                                                    SELECT 
+                                                        Id, Name, Email,CreatedDate
+                                                    FROM 
+                                                        Contacts
+                                                    ORDER BY
+                                                        CreatedDate
+                                                    Asc
+                                                    LIMIT  
+                                                        50000
                                                 ),
-                                                (SELECT 
-                                                    Id, Name, StageName, Amount 
-                                                FROM    
-                                                    Opportunities
-                                               
-                                                LIMIT
-                                                    50000
+                                                (
+                                                    SELECT 
+                                                        Id, Name, StageName, Amount 
+                                                    FROM    
+                                                        Opportunities
+                                                    ORDER BY
+                                                        CreatedDate
+                                                    Asc
+                                                    LIMIT
+                                                        50000
                                                 )
-                                        FROM 
-                                            Account
-                                        WHERE 
-                                            LastModifiedDate  = TODAY 
-                                        LIMIT
-                                            50000
-                                    ]);
+                                            FROM 
+                                                Account
+                                            // WHERE 
+                                            //     Name like 'CTI - Review%' 
+                                            LIMIT
+                                                50000
+                                        ]);
     }
     /***************************************************************************************************
     * @Author:        CRM Developer
@@ -45,7 +53,7 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
     * @Param1:        bc:- it is a reference of Database.BatchableContext.
     ***************************************************************************************************/
     public void execute(Database.BatchableContext bc, List<Account> scope) {
-        
+        System.debug('execute method');
         List<Contact> lstUpdateContacts = new List<Contact>();
         List<Opportunity> lstUpdateOpportunites = new List<Opportunity>();
        
@@ -53,11 +61,11 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
             
             Map<String,Integer> mapDupCon = new Map<String,Integer>();
             Map<String,Integer> mapDupopp = new Map<String,Integer>();
-            String id = acc.OwnerId;
+            String accOwnerId = acc.OwnerId;
             Boolean isDuplicate = false;
             Integer dupCon=0;
             Integer dupOpp=0;
-            
+            System.debug('Initialization');
             List<Contact> lstcontacts = acc.Contacts;
             for(Contact con : lstcontacts){
                 if(mapDupCon.containsKey(con.Name)){
@@ -70,6 +78,7 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
                     mapDupCon.put(con.Name, 1);
                 }
             }
+            System.debug('contacts done');
             List<Opportunity> lstOpportunities = acc.Opportunities;
             for(Opportunity opp : lstOpportunities){
                 if(mapDupopp.containsKey(opp.Name)){
@@ -82,19 +91,19 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
                     mapDupopp.put(opp.Name, 1);
                 }
             }
-            if(isDuplicate)
-            {
-                if(mapIdvsDupAccOppWrapper.containsKey(id)){
-                    DupliacteAccountOppWrapper dupAccOppWrapper1 = mapIdvsDupAccOppWrapper.get(id);
+            System.debug('opportunities done');
+            if(isDuplicate){
+                if(mapIdvsDupAccOppWrapper.containsKey(accOwnerId)){
+                    DupliacteAccountOppWrapper dupAccOppWrapper1 = mapIdvsDupAccOppWrapper.get(accOwnerId);
                     dupAccOppWrapper1.dupCon = dupAccOppWrapper1.dupCon + dupCon;
                     dupAccOppWrapper1.dupOpp = dupAccOppWrapper1.dupOpp + dupOpp;
-                }
-                else {
-                    DupliacteAccountOppWrapper dupAccOppWrapper = new DupliacteAccountOppWrapper(id,dupCon,dupOpp);
-                    mapIdvsDupAccOppWrapper.put(id, dupAccOppWrapper);
+                }else {
+                    DupliacteAccountOppWrapper dupAccOppWrapper = new DupliacteAccountOppWrapper(accOwnerId,dupCon,dupOpp);
+                    mapIdvsDupAccOppWrapper.put(accOwnerId, dupAccOppWrapper);
                 }
             }  
         }
+        System.debug('duplicate calculation end');
         if(!lstUpdateContacts.isEmpty())
         {
             update lstUpdateContacts;
@@ -111,8 +120,9 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
     * @Param1:        bc:- it is a reference of Database.BatchableContext.
     ***************************************************************************************************/
     public void finish(Database.BatchableContext bc){
+        System.debug('finish method');
         List<Messaging.SingleEmailMessage> mails =new List<Messaging.SingleEmailMessage>();
-        Map <Id,User> mapIdvsUser = new Map<Id,User>([
+        Map <Id, User> mapIdvsUser = new Map<Id, User>([
                                                         SELECT
                                                             email
                                                         FROM
@@ -136,8 +146,10 @@ public class DuplicateContactAndOpportunity implements Database.Batchable<SObjec
                 System.debug('mail'+mail);
             
         }
-        // Messaging.SendEmailResult[] results = Messaging.sendEmail(
-        //     new Messaging.SingleEmailMessage[] mails);
+        Messaging.SendEmailResult[] results = Messaging.sendEmail(mails);
+        system.debug('total can Called :'+Limits.getLimitEmailInvocations());
+        system.debug('total Called :'+Limits.getEmailInvocations());
+
     }
 }
 

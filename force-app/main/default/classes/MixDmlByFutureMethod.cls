@@ -6,7 +6,7 @@
 public with sharing class MixDmlByFutureMethod {
     public static void mixDmlOperation(){
         Account acc = new Account(Name = 'sam');
-        insert acc;   
+        insert acc;
         createUser();
     }
 
@@ -17,14 +17,16 @@ public with sharing class MixDmlByFutureMethod {
     ***************************************************************************************************/
     @future
     public static void createUser(){
-        String proId='';
+        String proId = '';
         List<Profile> lstProfiles = [
                                         SELECT 
                                             Id 
                                         FROM 
                                             Profile 
                                         WHERE 
-                                            Name = 'Standard User' 
+                                            Name = 'Standard User'
+                                        WITH
+                                            SECURITY_ENFORCED
                                         LIMIT 
                                             1
                                     ];

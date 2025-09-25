@@ -14,14 +14,14 @@ public with sharing class EftTransactionStatusTriggerHandler {
         String AvsQueueId = '';
         String assignmentRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Assignment').getRecordTypeId();
         List<Group> grpList = [
-                                SELECT
-                                    Id 
-                                FROM 
-                                    Group 
-                                WHERE 
-                                    DeveloperName = 'AVS_Queue' 
-                                LIMIT 
-                                    1
+                                    SELECT
+                                        Id 
+                                    FROM 
+                                        Group 
+                                    WHERE 
+                                        DeveloperName = 'AVS_Queue' 
+                                    LIMIT 
+                                        1
                                 ];
         if (!grpList.isEmpty()) {
             AvsQueueId = grpList[0].Id;
