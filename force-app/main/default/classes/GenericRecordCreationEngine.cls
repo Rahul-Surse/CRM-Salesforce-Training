@@ -26,9 +26,7 @@ public with sharing class GenericRecordCreationEngine{
         Map<String,Object> mapStrvsObject = new Map<String,Object>();
         try {
             for(Event e : lstEvents){
-                if(!String.isBlank(e.Description))
-                {
-                    
+                if(!String.isBlank(e.Description)){
                     mapStrvsObject =(Map<String,Object>) JSON.deserializeUntyped(e.Description);
                     String strObj =(String) mapStrvsObject.get('ObjectName');
                     SObject obj = Schema.getGlobalDescribe().get(strObj).newSObject();

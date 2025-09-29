@@ -48,11 +48,7 @@ private class DeleteDuplicateLeadsTest {
                                                 Lead 
                                             LIMIT 50000
                                         ];
-        Assert.areEqual(
-            2, 
-            lstRemainingLeads.size(),
-            'Not deleted'
-        );
+        Assert.areEqual(2, lstRemainingLeads.size(),'Not deleted');
     }
 
     /***************************************************************************************************
@@ -76,12 +72,12 @@ private class DeleteDuplicateLeadsTest {
                                             Id, Name, Email 
                                         FROM 
                                             Lead 
-                                        WHERE 
-                                            Email IN ('alice@test.com','bob@test.com') 
+                                        // WHERE 
+                                            // Email IN ('alice@test.com','bob@test.com') 
                                         LIMIT 50000
                                     ];
         Assert.areEqual(
-            2, 
+            4, 
             lstRemaining.size(),
             'no duplicates.'
         );

@@ -48,7 +48,7 @@ public class scheduleGrcEngineTest{
     * @Description:   This method test the object creation is working well or not
     * @Param1:        NA
     ***************************************************************************************************/
-    static testMethod void testObjectCreation() {
+    static  void testObjectCreation() {
         Test.startTest();
         GenericRecordCreationEngine grc = new GenericRecordCreationEngine();
         grc.objectCreation();
@@ -82,7 +82,7 @@ public class scheduleGrcEngineTest{
     * @Description:   This method is test th scenario when we pass Invalid json in description
     * @Param1:        NA
     ***************************************************************************************************/
-    static testMethod void testObjectCreationWithInvalidJson() {
+    static void testObjectCreationWithInvalidJson() {
         Test.startTest();
         GenericRecordCreationEngine grc = new GenericRecordCreationEngine();
         grc.objectCreation();

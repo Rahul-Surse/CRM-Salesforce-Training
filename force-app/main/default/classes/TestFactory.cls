@@ -21,16 +21,15 @@ public with sharing class TestFactory {
         List<Opportunity> lstOpp = new List<Opportunity>();
         List<OpportunityLineItem> lstOli = new List<OpportunityLineItem>();
         List<Pricebook2> lstPriceBookIds= [
-                                            SELECT 
-                                                Id 
-                                            FROM
-                                                Pricebook2  
-                                            WHERE
-                                                IsStandard = True
-                                            LIMIT
-                                                1
+                                                SELECT 
+                                                    Id 
+                                                FROM
+                                                    Pricebook2  
+                                                WHERE
+                                                    IsStandard = True
+                                                LIMIT
+                                                    1
                                         ];
-
         if(!lstPriceBookIds.isEmpty()){
             pbId = lstPriceBookIds[0].Id;
         }                        

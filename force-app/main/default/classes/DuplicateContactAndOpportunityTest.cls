@@ -13,6 +13,7 @@ public with sharing class DuplicateContactAndOpportunityTest {
     @testSetup
     static void setupData() {
 
+
         Account acc1 = new Account(Name = 'CTI - Acc With Duplicates');
         insert acc1;
 
@@ -61,6 +62,7 @@ public with sharing class DuplicateContactAndOpportunityTest {
 
     @IsTest
     static void DuplicateContactAndOpportunityTest() {
+        
         Test.startTest();
         Database.executeBatch(new DuplicateContactAndOpportunity(), 200);
         Test.stopTest();

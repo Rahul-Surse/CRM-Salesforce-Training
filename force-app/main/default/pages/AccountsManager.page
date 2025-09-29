@@ -1,8 +1,40 @@
 <apex:page controller="AccountManagerController">
+    <!-- <script type="text/javascript" src="{!URLFOR($Resource.VfJavaScriptResources,'demo/demo.js')}"></script> -->
+    <apex:image id="headerImage" value="{!$Resource.HeaderImage}" width="150" height="80"/>
+    <apex:includeScript value="{!URLFOR($Resource.VfJavaScriptResources, 'script.js')}"/>
+     <!-- <script>
+        function deleteAccountJS(accountId) {
+            if(confirm('Are you sure you want to delete this account?')) {
+                AccountManagerController.deleteAccount(accountId, function(result, event) {
+                    if(event.status && result === 'success') {
+                        alert('The account has been deleted');
+                        location.reload();
+                        location.reload;
+                    } else {
+                        alert('Error deleting account: ' + result);
+                    }
+                }, {escape: true});
+            }
+        }
+    </script> -->
     <apex:form>
         <apex:pageBlock title="All Accounts">
+            
             <apex:inputText value="{!searchKey}" />
             <apex:commandButton value="Search" action="{!searchAccounts}" rerender="accountTable,messages"/><br/>
+            <apex:actionSupport event="onkeypress" 
+                                action="{!searchAccounts}" 
+                                rerender="accountTable,messages"/>
+            <div style="margin-bottom: 20px;">
+                <apex:repeat value="{!alphabetList}" var="letter">
+                    <a href="javascript:void(0);"
+                    onclick="filterByLetter('{!letter}')">{!letter}</a>
+                </apex:repeat>
+            </div>
+
+            <apex:actionFunction name="filterByLetter" action="{!searchBychar}" rerender="accountTable,messages">
+                <apex:param name="letter" assignTo="{!selectedLetter}" value="" />
+            </apex:actionFunction>
             <apex:outputText value="{!message}" Id="messages"/>
             <apex:commandLink value="Clear Search" action="{!clearSearch}" rerender="accountTable,messages"/><br/>
             <apex:pageBlockTable value="{!lstAccounts}" var="acc" id="accountTable">
@@ -14,7 +46,12 @@
             <apex:column headerValue="Website">
                 <apex:outputLink value="{!acc.Website}" target="_blank">{!acc.Website}</apex:outputLink>
             </apex:column>
+            <apex:column headerValue="Actions">
+                 <a href="javascript:void(0);" onclick="deleteAccountJS('{!acc.Id}')">Delete</a>
+            </apex:column>
             </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:form>
+    
+
 </apex:page>
